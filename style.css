@@ -1,0 +1,186 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color:#626567;
+    height:80px;
+    width:100%;
+    line-height: 80px;
+}
+
+
+ h1{
+    color:white;
+    position:absolute;
+    left:5vw;
+    top:0;
+    line-height: 80px;
+ }
+ header ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+ }
+ header li {
+    display: inline;
+    margin-right: 4vw;
+ }
+
+ header a {
+    color:white;
+    text-decoration: none;
+ }
+ header a:hover {
+    text-decoration: underline;
+ }
+
+ 
+.members {
+    color:grey;
+    font-size: 16px;
+    position:relative;
+    left:5vw;
+    top:0;
+    line-height: 80px;
+}
+
+.JUNGWON {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.JUNGWON img {
+     width:30%;
+     height: 100%;
+}
+
+.HEESEUNG {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.HEESEUNG img {
+     width:30%;
+     height: 100%;
+}
+
+.JAY {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.JAY img {
+     width:30%;
+     height: 100%;
+}
+
+.JAKE {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.JAKE img {
+     width:30%;
+     height: 100%;
+}
+
+.SUNGHOON {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.SUNGHOON img {
+     width:30%;
+     height: 100%;
+}
+
+.SUNOO {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.SUNOO img {
+     width:30%;
+     height: 100%;
+}
+
+.NIKI {
+    display: flex;
+    font-size: 16px;
+    position:relative;
+    left:1vw;
+    top:0;
+    line-height: 35px;
+    text-indent: 30px;
+    margin:20px;
+}
+.NIKI img {
+     width:30%;
+     height: 100%;
+}
+
+
+.宣誓文 {
+    display: flex;
+    color:grey;
+    font-size: 12px;
+    position:relative;
+    left:5vw;
+    line-height: 40px;
+    margin:20px;
+}
+.宣誓文 img {
+    width:45%;
+}
+.info {
+    width: 50%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    background-color: #626567;
+    color: white;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+/* 響應式設計語法 */
