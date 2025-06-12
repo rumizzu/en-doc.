@@ -37,7 +37,45 @@ header {
     text-decoration: underline;
  }
 
- 
+.carousel-inner {
+    display: flex;
+}
+.slides ul {
+    position: relative;
+    width: 600px;
+    height: 280px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.slides li {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.make1 img {
+    left: 100%;
+}
+.you img {
+    left: 200%;
+}
+.mine img {
+    left: 300%;
+}
+.eg img {
+    left: 400%;
+}
+
 .members {
     color:grey;
     font-size: 16px;
@@ -156,7 +194,7 @@ header {
 .宣誓文 {
     display: flex;
     color:grey;
-    font-size: 12px;
+    font-size: 16px;
     position:relative;
     left:5vw;
     line-height: 40px;
@@ -164,6 +202,8 @@ header {
 }
 .宣誓文 img {
     width:45%;
+    height: 100%;
+    object-fit: cover;
 }
 .info {
     width: 50%;
