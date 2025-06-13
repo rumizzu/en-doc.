@@ -10,6 +10,7 @@ header {
     display: flex;             
     align-items: center;       
     padding-left: 5vw;
+    position: relative;
 }
 
  h1{
@@ -19,6 +20,51 @@ header {
     top: 13px;;
     line-height: 80px;
  }
+
+
+/* 漢堡按鈕 */
+.menu-toggle {
+  position:absolute;
+  font-size: 28px;
+  top: 13px;;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* 手機版樣式 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 80px; /* header 高度 */
+    left: 0;
+    width: 100%;
+    background-color: #626567;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+  }
+  .nav-links a {
+    color: white;
+  }
+}
+
 
  header ul {
     position:absolute;
@@ -217,13 +263,26 @@ footer p {
 
 
 /* 響應式設計語法 */
+/* 所有圖片寬度不超過畫面 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 區塊不要擠出螢幕 */
+body {
+  overflow-x: hidden;
+}
+
+/* header 選單在手機版隱藏（你可能已有這段） */
 @media screen and (max-width: 768px) {
-    header ul {
-        display: none;
-    }
-    header h1 {
-        position: relative;
-        left:50%;
-        transform: translateX(-50%);
-    }
+  header ul {
+    display: none;
+  }
+
+  header h1 {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
 }

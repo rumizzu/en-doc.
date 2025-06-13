@@ -5,27 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EN-DOC.</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header>
-    <h1>EN-DOC.</h1>
-    <section>
-    <nav>
-    <ul>
-        <li><a href="schedule.html">行程規劃</a></li>
-        <li><a href="#">相簿整理</a></li>
-        <li><a href="#">線下活動</a></li>
-        <li><a href="#">歌詞語錄</a></li>
-    </ul>
+      <h1>EN-DOC.</h1>
+      <!-- 漢堡選單按鈕 -->
+    <div class="menu-toggle">&#9776;</div>
+    <nav class="nav-links">
+        <ul>
+            <li><a href="schedule.html">行程規劃</a></li>
+            <li><a href="#">相簿整理</a></li>
+            <li><a href="#">線下活動</a></li>
+            <li><a href="#">歌詞語錄</a></li>
+        </ul>
     </nav>
-    </section>
     </header>
     
-
-        <!-- 加入 Bootstrap 4 CSS & JS -->
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- 輪播區塊 -->
          <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
            <!-- 指示點 -->
@@ -71,7 +67,7 @@
     <div class="JUNGWON">
         <img src="images/IMG_3473.jpg" alt="JUNGWON">
         
-        <div memb-info>
+        <div class="memb-info">
         <h3>
             隊長
         </h3>
@@ -97,7 +93,7 @@
     <div class="HEESEUNG">
         <img src="images/IMG_3468.jpg" alt="HEESEUNG">
         
-        <div memb-info>
+        <div class="memb-info">
         <P>
         姓名：李羲承 HEESEUNG 희승
         </P>
@@ -119,7 +115,7 @@
     <div class="JAY">
         <img src="images/IMG_3469.jpg" alt="JAY">
         
-        <div memb-info>
+        <div class="memb-info">
         <P>
         姓名：朴粽星 JAY 제이
         </P>
@@ -141,7 +137,7 @@
     <div class="JAKE">
         <img src="images/IMG_3470.jpg" alt="JAKE">
         
-        <div memb-info>
+        <div class="memb-info">
         <P>
         姓名：沈載倫 제이크 JAKE
         </P>
@@ -163,7 +159,7 @@
     <div class="SUNGHOON">
         <img src="images/IMG_3471.jpg" alt="SUNGHOON">
         
-        <div memb-info>
+        <div class="memb-info">
         <P>
         姓名：朴成訓 성훈 SUNGHOON
         </P>
@@ -185,7 +181,7 @@
     <div class="SUNOO">
         <img src="images/IMG_3472.jpg" alt="SUNOO">
         
-        <div memb-info>
+        <div class="memb-info">
         <P>
         姓名：金善禹 선우 SUNOO
         </P>
@@ -207,7 +203,7 @@
     <div class="NIKI">
         <img src="images/IMG_3474.jpg" alt="NIKI">
         
-        <div memb-info>
+        <div class="memb-info">
         <P>
         姓名：西村力 니키 NIKI
         </P>
@@ -245,5 +241,21 @@
         <p>Copyright © 2025 rumi_zzu ALL RIGHTS RESERVED.</p>
     </footer>
 
+
+     <!-- 加入 Bootstrap 4 CSS & JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+     const menuToggle = document.querySelector(".menu-toggle");
+     const navLinks = document.querySelector(".nav-links");
+
+     menuToggle.addEventListener("click", () => {
+       menuToggle.classList.toggle("active");
+       navLinks.classList.toggle("active");
+     });
+    });
+    </script>
 </body>
 </html>
