@@ -21,6 +21,24 @@ header {
     line-height: 80px;
  }
 
+ header ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+ }
+ header li {
+    display: inline;
+    margin-right: 4vw;
+ }
+
+ header a {
+    color:white;
+    text-decoration: none;
+ }
+ header a:hover {
+    text-decoration: underline;
+ }
 
 /* 漢堡按鈕 */
 .menu-toggle {
@@ -43,8 +61,12 @@ header {
     position: absolute;
     top: 80px; /* header 高度 */
     left: 0;
-    width: 100%;
+    right: 0;
+    width: 100vw;
+    box-sizing: border-box;
     background-color: #626567;
+    z-index: 999;
+    padding: 225px 0;
   }
 
   .nav-links.active {
@@ -52,38 +74,46 @@ header {
   }
 
   .nav-links ul {
+    width: 100%;
+    background-color: #626567;
+    display: flex;
     flex-direction: column;
-    text-align: center;
-    padding: 10px 0;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .nav-links li {
-    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
+
   .nav-links a {
     color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+    background-color: #4d5154;
+  }
+
+  header ul {
+    display: none; /* 保險：header ul 一律隱藏 */
+  }
+
+  header h1 {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
   }
 }
-
-
- header ul {
-    position:absolute;
-    right:5vw;
-    top:0;
-    line-height: 80px;
- }
- header li {
-    display: inline;
-    margin-right: 4vw;
- }
-
- header a {
-    color:white;
-    text-decoration: none;
- }
- header a:hover {
-    text-decoration: underline;
- }
 
 
 .carousel-item {
@@ -106,13 +136,21 @@ header {
   margin-bottom: 80px;
 }
 
+/* 手機版樣式 */
+@media (max-width: 768px) {
+    .carousel-indicators {
+        position: absolute;
+        top: 300px;
+    }
+}
+
 .members {
     color:grey;
     font-size: 16px;
     position:relative;
     left:5vw;
     top:0;
-    line-height: 80px;
+    line-height: 1.8;
 }
 
 .JUNGWON {
@@ -242,6 +280,23 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .宣誓文 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .宣誓文 img {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .info {
+    width: 90%;
+    text-align: center;
+  }
 }
 
 footer {
