@@ -237,6 +237,9 @@ header {
   top: 0; /* 距離上方多少可以自行調整 */
 }
 }
+.bg-video {
+  border: 2px solid red;
+}
 
 body {
   overflow-x: hidden;
