@@ -145,10 +145,21 @@ header {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
+
 @media (max-width: 768px) {
-  .carousel-inner {
-    height: auto !important;
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
   }
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px; 
+    background-color: white;
+}
 }
 
 #myCarousel {
@@ -210,6 +221,8 @@ header {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+    max-width: 100vw;
+    max-height: 100vh;
   }
 }
 
