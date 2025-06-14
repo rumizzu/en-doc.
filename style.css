@@ -227,16 +227,16 @@ header {
   width: 100%;
   height: 100%;
   color: gray;
-  font-size: 23px;
+  font-size: 18px;
   text-align: center;
   z-index: 2;
   letter-spacing: 5px;
-  line-height: 3;
+  line-height: 2.3;
 }
 
 .news-content .more-news {
   position: absolute;
-  top: 670px;
+  top: 700px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -274,8 +274,17 @@ header {
 }
 
 .news-list li {
-  margin-bottom: 8px;
+  padding: 8px 0;
+  list-style: none;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
 }
+
+.news-list li:not(:last-child) {
+  border-bottom: 6px dashed gray;  /* 保留粗虛線 */
+}
+
 
 .news-list a {
   color: gray;
@@ -291,7 +300,7 @@ header {
 .more-news {
   display: block;
   text-align: right;
-  font-size: 20px;
+  font-size: 15px;
   color: gray;
   text-decoration: none;
   margin-top: 10px;
@@ -334,19 +343,31 @@ header {
   }
 
   .news-content ul {
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 5px;
-    line-height: 3;
-    top: 250px;
+    line-height: 1.5;
+    top: 230px;
   }
 
   .news-content .more-news {
     font-size: 10px;
-    top: 530px;
+    top: 540px;
   }
   .news-list {
     list-style: none;     /* 移除黑點 */
   }
+
+  .news-list li {
+   padding: 8px 0;
+   list-style: none;
+   width: 50%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.news-list li:not(:last-child) {
+  border-bottom: 4px dashed gray;  /* 保留粗虛線 */
+}
 }
 
 
@@ -470,7 +491,7 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateX(100px); /* 往右移動 20px，可調整 */
+    transform: translateX(100px); /* 往右移動 ，可調整 */
 }
 
 @media screen and (max-width: 768px) {
@@ -488,6 +509,7 @@ p {
   .info {
     width: 90%;
     text-align: center;
+    transform: translateX(0);
   }
 }
 
