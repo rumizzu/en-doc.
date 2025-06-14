@@ -14,7 +14,7 @@ h1, h2, h3, p, .nav-links, center {
 header {
     background-color:#626567;
     height:80px;
-    width:105%;
+    width:100%;
     top: 0;
     display: flex;             
     align-items: center;       
@@ -72,7 +72,7 @@ header {
     position: absolute;
     top: 80px; /* header 高度 */
     left: 10px;
-    width: 110vw;
+    width: 100vw;
     box-sizing: border-box;
     background-color: #626567;
     z-index: 999;
@@ -384,3 +384,13 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* === 檢查用紅線 === */
+* {
+  outline: 1px solid red !important;
+}
