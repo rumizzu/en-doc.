@@ -72,7 +72,7 @@ header {
     position: absolute;
     top: 80px; /* header 高度 */
     left: 10px;
-    width: 100vw;
+    width: 110vw;
     box-sizing: border-box;
     background-color: #626567;
     z-index: 999;
@@ -129,7 +129,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 280px; 
+  height: 400px; 
   background-color: white;
 }
 
@@ -174,11 +174,14 @@ header {
     position: absolute;
     bottom: 30px;
   }
+.carousel-item {
+    height: 280px; 
+}
 }
 
 .news-section {
   position: relative;
-  height: 700px;
+  height: 900px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -206,19 +209,32 @@ header {
 
 .bg-video {
   position: absolute;
-  top: 0;
+  top: 10%;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: -1;
+  object-fit: cover;  /* 預設電腦鋪滿 */
 }
 
-@media (max-width: 768px) {
-  video {
-   width: 100%;
-   height: auto;
-   object-fit: contain;
-   max-height: 100vh;
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+    top: 5%;
+  }
+.news-content h2 {
+  position: absolute;
+  top: 0; /* 距離上方多少可以自行調整 */
 }
 }
 

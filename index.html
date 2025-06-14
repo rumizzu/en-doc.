@@ -84,9 +84,14 @@
             </div>
 
     <section class="news-section">
-      <video autoplay muted loop playsinline class="bg-video">
-        <source src="videos/news-bg.mp4" type="video/mp4">
-        您的瀏覽器不支援背景影片。
+      <!-- 電腦版影片 -->
+      <video class="bg-video desktop-only" autoplay muted loop playsinline>
+        <source src="videos/news-bg-h.mp4" type="video/mp4">
+      </video>
+
+      <!-- 手機版影片 -->
+      <video class="bg-video mobile-only" autoplay muted loop playsinline>
+        <source src="videos/news-bg-v.mp4" type="video/mp4">
       </video>
 
       <div class="news-content">
