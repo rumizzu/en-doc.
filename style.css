@@ -129,8 +129,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 350px; 
-  background-color: white;
+  height: 280px; 
+  background-color: grey;
 }
 
 .carousel-item img {
@@ -144,26 +144,12 @@ header {
 .carousel, .carousel-inner, .carousel-item {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
-}
-
-@media (max-width: 768px) {
-  .carousel-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-  }
-  .carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 350px; 
-    background-color: white;
-}
+  position: relative;
 }
 
 #myCarousel {
   margin-bottom: 80px;
+  position: relative;
 }
 
 .carousel-indicators [data-target] {
@@ -179,6 +165,16 @@ header {
   background-color: white;  /* 被選中的小方點顏色 */
 }
 
+
+@media screen and (max-width: 768px) {
+  #myCarousel {
+    position: relative;  /* 關鍵設定！ */
+  }
+ .carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+  }
+}
 
 .news-section {
   position: relative;
@@ -218,22 +214,13 @@ header {
 }
 @media (max-width: 768px) {
   video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+    width: 85vw;
+    height: 85vh;
     max-width: 100vw;
     max-height: 100vh;
   }
 }
 
-
-/* 手機版樣式 */
-@media (max-width: 768px) {
-    .carousel-indicators {
-        position: absolute;
-        top: 300px;
-    }
-}
 
 body {
   overflow-x: hidden;
