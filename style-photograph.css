@@ -195,8 +195,7 @@ h2 {
   white-space: nowrap;       /* 不換行 */
   overflow: hidden;          /* 超出隱藏 */
   text-overflow: ellipsis;   /* 顯示省略號 */
-  width: 100%;               /* 或你希望限制的最大寬度，例如 180px */
-  max-width: 180px;
+  width: 95%;               /* 或你希望限制的最大寬度，例如 180px */
   height: auto;
   min-height: 40px; /* 可以視需求微調最小高度 */
 }
