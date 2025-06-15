@@ -7,7 +7,8 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, p, .nav-links, center, table, span, a {
+
+h1, h2, h3, p, .nav-links, center, table, span, a, .tile {
   font-family: 'Silkscreen', 'Sunflower', 'DotGothic16', 'Noto Sans TC', sans-serif;
 }
 
@@ -136,93 +137,92 @@ header {
 
 
 body {
-  background-color: black;
-  font-family: 'Silkscreen', monospace;
-  text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_desktop_1920x1080.png'); /* 半透明遮罩 + 圖片 */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  background-position: center;
-  background-size: contain;   /* 或 contain 看你需求 */
-  background-attachment: fixed;  /* 若你想要背景固定在畫面上 */
-  min-height: 100vh;  /* 確保至少鋪滿整個畫面 */
-  padding-top: 100px; /* 給整個 body 空間 */
-  box-shadow: 0 0 60px rgba(255, 255, 255, 0.2) inset; /* 加一層陰影模擬浮出效果 */
-}
-html, body {
-  min-height: 100vh;
   margin: 0;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_mobile_1290x2796.png'); /* 改為手機版背景 */
-    background-size: 100% auto;
-    background-position: center;
-  }
-}
-
-
-h2 {
-  color: #f9e79f; 
-  font-size: 30px !important;
-  margin-top: 35px!important;
-  text-shadow: 2px 2px gray; /* 加陰影讓字浮出來 */
-  z-index: 10;
-  position: relative;
-  text-align: center;
-}
-
-/* 相簿區 */
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 30px;
-  padding: 50px 10vw 100px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.album-card {
-  display: flex;
-  font-size: 15px !important;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #f9e79f;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  padding: 10px 15px;
-  transition: transform 0.2s, background-color 0.2s;
-  text-align: center;
-  white-space: nowrap;       /* 不換行 */
-  overflow: hidden;          /* 超出隱藏 */
-  text-overflow: ellipsis;   /* 顯示省略號 */
-  width: 95%;               /* 或你希望限制的最大寬度，例如 180px */
-  height: auto;
-  min-height: 40px; /* 可以視需求微調最小高度 */
-}
-
-.album-title {
-  display: block;
-  width: 100%;
-  white-space: nowrap;
+  padding: 0;
+  font-family: "Courier New", monospace;
+  background: url('images/grass.png') no-repeat center center fixed;
+  background-size: cover;
   overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  font-size: 15px;
 }
 
-.album-card span {
-  font-size: 16px;
+.game-map {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 40px;
+  padding: 60px;
+  position: relative;
+  width: 100%;
+  height: 670px; /* 強制讓地圖佔滿畫面，避免 footer 飛上來 */
+  padding-top: 100px; /* 空出 header 高度 */
 }
 
-.album-card:hover {
-  background-color: #f9e79f;
-  color: rgb(159, 156, 156);
-  transform: translateY(-4px);
+.tile {
+  position: absolute; /* 新增這行 */
+  width: 150px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: gray;
+  z-index: 1;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
+
+.tile a {
+  color: gray;
+  text-decoration: none; /* 如果你不想要底線 */
+}
+
+.tile a:hover {
+  color: black; /* 滑過時改成黑色，可自行設定 */
+}
+
+
+.tile:active {
+  transform: scale(0.95);
+}
+
+.chibi-wrapper {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  transition: all 0.8s ease-in-out;
+}
+
+.chibi {
+  width: 64px;
+  height: 64px;
+  animation: float 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+.speech-bubble {
+  position: absolute;
+  bottom: 70px;
+  left: -10px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  display: none;
+  white-space: nowrap;
+}
+
+.chibi-wrapper:hover .speech-bubble {
+  display: block;
+}
+
+
+
+
 
 
 

@@ -21,7 +21,7 @@
            <ul>
              <li><a href="schedule.html">schedule</a></li>
              <li><a href="photograph.html">photograph</a></li>
-             <li><a href="">kakkoii</a></li>
+             <li><a href="kakkoii.html">kakkoii</a></li>
            </ul>
       </div>
     </header>
@@ -234,17 +234,30 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
    
-    <script>
-     document.addEventListener("DOMContentLoaded", function () {
-       const menuToggle = document.querySelector(".menu-toggle");
-       const navLinks = document.querySelector(".nav-links");
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
 
+        // 切換選單開關
+        menuToggle.addEventListener("click", function (e) {
+          e.stopPropagation(); // 不讓它冒泡出去
+          navLinks.classList.toggle("active");
+        });
 
-       menuToggle.addEventListener("click", function () {
-         navLinks.classList.toggle("active");
-       });
-     });
+        // 點選選單內部不關閉（例如點選連結）
+        navLinks.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+
+        // 點選畫面其他地方會關閉選單
+        document.addEventListener("click", function () {
+          navLinks.classList.remove("active");
+        });
+      });
     </script>
+
+
 
     <script>
      const carousel = document.querySelector('.member-carousel');

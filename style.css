@@ -498,7 +498,8 @@ p {
   .宣誓文 {
     flex-direction: column;
     align-items: center;
-    font-size: 11px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
   }
 
   .宣誓文 img {
@@ -525,6 +526,8 @@ footer {
     margin: 0; /* 確保沒額外外邊距 */
     padding: 0; /* 確保沒額外內邊距 */
     text-align: center; /* 保險起見 */
+    bottom: 0;
+    width: 100%;
 }
 footer p {
   margin: 0;
