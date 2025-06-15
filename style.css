@@ -366,7 +366,7 @@ header {
 }
 
 .news-list li:not(:last-child) {
-  border-bottom: 4px dashed gray;  /* 保留粗虛線 */
+  border-bottom: 4px dashed #ccd1d1;  /* 保留粗虛線 */
 }
 }
 
@@ -498,7 +498,7 @@ p {
   .宣誓文 {
     flex-direction: column;
     align-items: center;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .宣誓文 img {

@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, p, .nav-links, center {
+h1, h2, h3, p, .nav-links, center, table, span {
   font-family: 'Silkscreen', 'Sunflower', 'DotGothic16', 'Noto Sans TC', sans-serif;
 }
 
@@ -133,3 +133,224 @@ header {
     position: absolute;
   }
 }
+
+
+.calendar-section {
+  text-align: center;
+  color: gray;
+  margin: 20px;
+}
+
+.calendar-container {
+  margin-top: 110px; /* 往下移動的距離，可依需要調整 */
+}
+
+.calendar-section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f9e79f;
+  font-size: 30px !important;
+  margin-top: 35px!important;
+  text-shadow: 2px 2px gray; /* 加陰影讓字浮出來 */
+  margin-bottom: 25px; /* 增加與下方年月的距離 */
+  text-align: center;
+}
+
+#monthYear {
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 0;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* 年月與按鈕的距離 */
+  margin-bottom: 30px;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-header button svg {
+  width: 24px;
+  height: 24px;
+  stroke: gray;
+  transition: stroke 0.3s;
+}
+
+.calendar-header button:hover svg {
+  stroke: darkgray;
+}
+
+
+.calendar {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+.calendar th, .calendar td {
+  width: 14.2%;
+  height: 60px;
+  border: 4px solid #ccc;
+  vertical-align: middle;
+}
+
+.event-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+  background-color: #d6eaf8!important;
+  position: relative;
+}
+
+.calendar td a:hover {
+  background-color: #d6eaf8!important;
+  font-weight: bold;
+}
+
+/* 有活動的日期：加閃爍動畫與背景 */
+.calendar td a.event-day {
+  background: #d6eaf8!important; 
+  animation: pulse 1.5s infinite;
+}
+/* 閃爍動畫 */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 rgba(255, 255, 153, 0.6); }
+  50% { box-shadow: 0 0 10px rgba(255, 255, 153, 1.0); }
+  100% { box-shadow: 0 0 0 rgba(255, 255, 153, 0.6); }
+}
+
+/* 滑過時加亮 */
+.calendar td a.event-day:hover {
+  background: #d6eaf8!important;
+  color: #f4d03f;
+}
+
+/* tooltip 樣式 */
+.calendar td a.event-day::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  margin-bottom: 6px;
+}
+
+.calendar td a.event-day:hover::after {
+  opacity: 1;
+}
+
+.calendar td a.event-day::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.calendar td a.event-day:hover::before {
+  opacity: 1;
+}
+
+.today {
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  text-decoration: underline !important;
+  color: gray !important;
+}
+
+/* 沒有活動的日期：正常灰色、無 hover 效果 */
+.calendar td a:not(.event-day) {
+  color: gray !important;
+  background: none !important;
+  pointer-events: none; /* 禁用滑鼠事件 */
+}
+
+.other-month {
+  color: rgba(128, 128, 128, 0.3) !important;
+  pointer-events: none;
+  text-decoration: none;
+}
+.calendar td a.other-month {
+  opacity: 0.4;
+  background: none !important;
+  pointer-events: none;
+}
+.calendar-header button:focus {
+  outline: 2px solid gray; /* 深灰色邊框 */
+  outline-offset: 2px;     /* 與元素間留點距離 */
+  border-radius: 6px;
+}
+
+
+@media (max-width: 576px) {
+  .calendar th, .calendar td {
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .calendar td a.event-day::after {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .calendar {
+    max-width: 800px;   /* 控制日曆寬度 */
+    margin: 0 auto;     /* 水平置中 */
+  }
+}
+
+
+
+footer {
+    background-color: #626567;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin: 0; /* 確保沒額外外邊距 */
+    padding: 0; /* 確保沒額外內邊距 */
+    text-align: center; /* 保險起見 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer p {
+  margin: 0;
+  line-height: 60px;
+}
+

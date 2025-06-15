@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p, .nav-links, center, table, span, a {
+  font-family: 'Silkscreen', 'Sunflower', 'DotGothic16', 'Noto Sans TC', sans-serif;
+}
+
+header {
+    background-color:#626567;
+    height:80px;
+    width:100%;
+    top: 0;
+    display: flex;             
+    align-items: center;       
+    padding-left: 5vw;
+    position: fixed;
+    z-index: 9999;
+}
+
+ h1{
+    color:white;
+    position:absolute;
+    left:5vw;
+    top: 13px;
+    line-height: 80px;
+ }
+ h1 a {
+  color: white;
+  text-decoration: none!important;
+ }
+
+ h1 a:hover {
+  color: #f4d03f;
+  text-decoration: none!important;
+ }
+
+ header ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+ }
+ header li {
+    display: inline;
+    margin-right: 4vw;
+ }
+
+ header a {
+    color:white;
+    text-decoration: none;
+ }
+ header a:hover {
+    color: #f4d03f;
+    text-decoration: none!important;
+ }
+
+
+/* 漢堡按鈕 */
+.menu-toggle {
+  position:absolute;
+  font-size: 28px;
+  top: 13px;;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* 手機版樣式 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 80px; /* header 高度 */
+    left: 10px;
+    width: 110vw;
+    box-sizing: border-box;
+    background-color: #626567;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links ul {
+    width: 100%;
+    background-color: #626567;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+    background-color: #4d5154;
+  }
+
+  header ul {
+    display: none; /* 保險：header ul 一律隱藏 */
+  }
+
+  header h1 {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+}
+
+
+body {
+  background-color: black;
+  font-family: 'Silkscreen', monospace;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_desktop_1920x1080.png'); /* 半透明遮罩 + 圖片 */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-position: center;;
+  padding-top: 100px; /* 給整個 body 空間 */
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.2) inset; /* 加一層陰影模擬浮出效果 */
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_mobile_1290x2796.png'); /* 改為手機版背景 */
+    background-size: 100% 90%;
+    background-position: center;
+  }
+}
+
+
+h2 {
+  color: #f9e79f; 
+  font-size: 30px !important;
+  margin-top: 35px!important;
+  text-shadow: 2px 2px gray; /* 加陰影讓字浮出來 */
+  z-index: 10;
+  position: relative;
+  text-align: center;
+}
+
+/* 相簿區 */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  padding: 50px 10vw 100px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.album-card {
+  display: flex;
+  font-size: 15px !important;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #f9e79f;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 15px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+
+.album-card span {
+  font-size: 16px;
+}
+
+.album-card:hover {
+  background-color: #f9e79f;
+  color: rgb(159, 156, 156);
+  transform: translateY(-4px);
+}
+
+
+
+
+footer {
+    background-color: #626567;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin: 0; /* 確保沒額外外邊距 */
+    padding: 0; /* 確保沒額外內邊距 */
+    text-align: center; /* 保險起見 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer p {
+  margin: 0;
+  line-height: 60px;
+}
+
