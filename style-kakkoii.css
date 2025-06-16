@@ -481,8 +481,8 @@ footer p {
 @media (max-width: 768px) {
   body {
     background: url('images/grass-v.png') no-repeat center center fixed;
-    background-size: cover;
-    background-position-y: bottom;
+    background-size: 100% 100%;
+    background-position: center;
   }
   
   .tile {
@@ -610,5 +610,9 @@ footer {
 footer p {
   margin: 0;
   line-height: 60px;
+}
+
+#music-toggle {
+  display: block;
 }
 }
