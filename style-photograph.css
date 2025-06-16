@@ -158,8 +158,8 @@ html, body {
 @media (max-width: 768px) {
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_mobile_1290x2796.png'); /* 改為手機版背景 */
-    background-size: 100% auto;
-    background-position: center;
+    background-size: cover;
+    background-position-y: bottom;
   }
 }
 
@@ -239,6 +239,7 @@ footer {
     margin: 0; /* 確保沒額外外邊距 */
     padding: 0; /* 確保沒額外內邊距 */
     text-align: center; /* 保險起見 */
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -247,3 +248,26 @@ footer p {
   line-height: 60px;
 }
 
+
+@media (max-width: 768px) {
+footer {
+    background-color: #626567;
+    color: white;
+    height: 8vh;
+    line-height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vw;
+    margin: 0; /* 確保沒額外外邊距 */
+    padding: 0; /* 確保沒額外內邊距 */
+    text-align: center; /* 保險起見 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;;
+}
+footer p {
+  margin: 0;
+  line-height: 60px;
+}
+}

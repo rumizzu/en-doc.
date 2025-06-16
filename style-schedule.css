@@ -354,3 +354,25 @@ footer p {
   line-height: 60px;
 }
 
+@media (max-width: 768px) {
+footer {
+    background-color: #626567;
+    color: white;
+    height: 8vh;
+    line-height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vw;
+    margin: 0; /* 確保沒額外外邊距 */
+    padding: 0; /* 確保沒額外內邊距 */
+    text-align: center; /* 保險起見 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;;
+}
+footer p {
+  margin: 0;
+  line-height: 60px;
+}
+}

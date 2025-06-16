@@ -26,57 +26,43 @@
       </div>
     </header>
     
-  <div class="game-map">
-    <!-- 地圖方格 -->
-    <div class="tile start" style="top: 80px; left: 50px;">Start</div>
-    <div class="tile" data-step="1" style="top: 40px; left: 250px;"><a href="tour.html">聖地巡禮</a></div>
-    <div class="tile" data-step="2" style="top: 200px; left: 100px;"><a href="style.html">同款</a></div>
-    <div class="tile" data-step="3" style="top: 350px; left: 280px;"><a href="murmur.html">MURMUR</a></div>
+    
 
-   <!-- Walker：可移動角色（Heeseung） -->
-<div id="walker" style="position:absolute; width:64px; height:64px; z-index:2; left:100px; top:60px;">
-  <img src="images/heeseung.PNG" class="chibi" />
-  <div class="speech-bubble">你好！我是 Heeseung</div>
-</div>
 
-<!-- 其他靜態角色 -->
-<div class="chibi-wrapper" style="top: 60px; left: 200px;">
-  <img src="images/jungwon.PNG" class="chibi" />
-  <div class="speech-bubble">你好！我是 Jungwon</div>
-</div>
-
-<div class="chibi-wrapper" style="top: 160px; left: 300px;">
-  <img src="images/jay.PNG" class="chibi" />
-  <div class="speech-bubble">你好！我是 Jay</div>
-</div>
-
-<div class="chibi-wrapper" style="top: 200px; left: 250px;">
-  <img src="images/jake.PNG" class="chibi" />
-  <div class="speech-bubble">你好！我是 Jake</div>
-</div>
-
-<div class="chibi-wrapper" style="top: 100px; left: 350px;">
-  <img src="images/sunghoon.PNG" class="chibi" />
-  <div class="speech-bubble">你好！我是 Sunghoon</div>
-</div>
-
-<div class="chibi-wrapper" style="top: 150px; left: 180px;">
-  <img src="images/sunoo.PNG" class="chibi" />
-  <div class="speech-bubble">你好！我是 Sunoo</div>
-</div>
-
-<div class="chibi-wrapper" style="top: 180px; left: 120px;">
-  <img src="images/niki.png" class="chibi" />
-  <div class="speech-bubble">你好！我是 Ni-ki</div>
-</div>
-
-</div>
-
+<!-- RPG Map -->
+  <div class="map-container">
+    <!-- 所有角色容器會由 JS 動態產生 -->
+<div class="tile position-start" data-step="0">Start</div>
+    <div class="tile position-tour" data-step="1"><a href="tour.html">Spot Journey</a></div>
+    <div class="tile position-style" data-step="2"><a href="style.html">EN‘s pick</a></div>
+    <div class="tile position-murmur" data-step="3"><a href="murmur.html">MURMUR</a></div>
+    <div class="tile position-stage" data-step="4"><a href="stage.html">stage</a></div>
+    <!-- 操作角色 walker（初始隱藏） -->
+    <div id="walker" class="position-walker" style="display: none;">
+      <img class="chibi" alt="" />
+      <div class="speech-bubble"></div>
+    </div>
   </div>
+
+<div id="character-select" class="character-select-overlay">
+  <div class="character-select-box">
+    <h2>choose your character</h2>
+    <div class="character-options">
+      <img src="images/heeseung.PNG" alt="HEESEUNG" data-name="HEESEUNG">
+      <img src="images/jungwon.PNG" alt="JUNGWON" data-name="JUNGWON">
+      <img src="images/jay.PNG" alt="JAY" data-name="JAY">
+      <img src="images/jake.PNG" alt="JAKE" data-name="JAKE">
+      <img src="images/sunghoon.PNG" alt="SUNGHOON" data-name="SUNGHOON">
+      <img src="images/sunoo.PNG" alt="SUNOO" data-name="SUNOO">
+      <img src="images/niki.png" alt="NIKI" data-name="NIKI">
+    </div>
+  </div>
+</div>
+
 
   <!-- 背景音樂 -->
   <audio id="bg-music" autoplay loop>
-    <source src="bgm.mp3" type="audio/mpeg">
+    <source src="music/bgm.mp3" type="audio/mpeg">
   </audio>
   <button id="music-toggle">🔊</button>
 
@@ -115,105 +101,249 @@
       });
     </script>
 
-    <script>
-      const music = document.getElementById("bg-music");
-      const toggle = document.getElementById("music-toggle");
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // 背景音樂邏輯
+  const music = document.getElementById("bg-music");
+  const musicToggle = document.getElementById("music-toggle");
 
-      toggle.addEventListener("click", () => {
-        if (music.muted) {
-          music.muted = false;
-          toggle.textContent = "🔊";
-        } else {
-          music.muted = true;
-          toggle.textContent = "🔇";
-        }
+  music.volume = 1;
+  music.muted = false;
+
+  document.addEventListener("click", () => {
+    if (music.paused) music.play();
+  }, { once: true });
+
+  musicToggle.addEventListener("click", () => {
+    if (music.muted) {
+      music.muted = false;
+      musicToggle.textContent = "🔊";
+    } else {
+      music.muted = true;
+      musicToggle.textContent = "🔇";
+    }
+  });
+
+  // 遊戲角色設定
+  const characterSelect = document.getElementById("character-select");
+  const characterOptions = document.querySelectorAll(".character-options img");
+  const mapContainer = document.querySelector(".map-container");
+  const walker = document.getElementById("walker");
+  const walkerImg = walker.querySelector("img");
+  const speech = walker.querySelector(".speech-bubble");
+
+  let selectedCharacter = null;
+  let positions = [];
+  let currentStep = 0;
+  let walkInterval = null;
+  let isWalking = false;
+
+  const members = [
+    { name: "HEESEUNG", src: "images/heeseung.PNG", position: "position-heeseung" },
+    { name: "JUNGWON",  src: "images/jungwon.PNG",  position: "position-jungwon"  },
+    { name: "JAY",      src: "images/jay.PNG",      position: "position-jay"      },
+    { name: "JAKE",     src: "images/jake.PNG",     position: "position-jake"     },
+    { name: "SUNGHOON", src: "images/sunghoon.PNG", position: "position-sunghoon" },
+    { name: "SUNOO",    src: "images/sunoo.PNG",    position: "position-sunoo"    },
+    { name: "NIKI",     src: "images/niki.png",     position: "position-niki"     }
+  ];
+
+  const phrases = {
+  HEESEUNG: ["我最喜歡甜食！", "準備好冒險了嗎？"],
+  JUNGWON: ["別忘了拍照紀錄！", "我來帶路吧～"],
+  JAY: ["冒險才剛開始！", "小心腳下！"],
+  JAKE: ["一起出發吧～", "今天是個好日子！"],
+  SUNGHOON: ["保持冷靜", "跟緊我喔！"],
+  SUNOO: ["拍張照片吧！", "可愛就是力量！"],
+  NIKI: ["Let's go～", "我來當前鋒！"]
+};
+
+// 🟨 點對話泡泡 => 顯示隨機對話
+document.addEventListener("click", (e) => {
+  const bubble = e.target.closest(".speech-bubble");
+  if (!bubble) return;
+
+  const wrapper = bubble.closest(".chibi-wrapper") || document.getElementById("walker");
+  const img = wrapper.querySelector("img");
+
+  // 從圖片檔案推測角色名稱（你已固定為 images/xxx.PNG）
+  let charName = img.getAttribute("alt") || img.getAttribute("src").split("/").pop().split(".")[0].toUpperCase();
+
+  const lines = phrases[charName] || ["嗨～"];
+  const random = Math.floor(Math.random() * lines.length);
+  bubble.textContent = lines[random];
+});
+
+
+  // 點角色選擇
+  characterOptions.forEach(img => {
+    img.addEventListener("click", () => {
+      const selectedName = img.dataset.name;
+      selectedCharacter = selectedName;
+
+      const selectedMember = members.find(m => m.name === selectedName);
+      walkerImg.src = selectedMember.src;
+      walkerImg.alt = selectedMember.name;
+      speech.textContent = `你好！我是 ${selectedMember.name}`;
+      walker.style.display = "block";
+
+      const startTile = document.querySelector(".position-start");
+      walker.style.left = `${startTile.offsetLeft + startTile.offsetWidth / 2 - 32}px`;
+      walker.style.top = `${startTile.offsetTop + startTile.offsetHeight / 2 - 32}px`;
+
+      characterSelect.style.display = "none";
+
+      // 產生其他角色
+      members.filter(m => m.name !== selectedName).forEach(member => {
+        const wrapper = document.createElement("div");
+        wrapper.className = `chibi-wrapper ${member.position}`;
+        wrapper.innerHTML = `
+          <img src="${member.src}" class="chibi" alt="${member.name}" />
+          <div class="speech-bubble">你好！我是 ${member.name}</div>
+        `;
+        mapContainer.appendChild(wrapper);
       });
 
-      const tiles = document.querySelectorAll('.tile');
-const walker = document.getElementById('walker');
-const musicToggle = document.getElementById('music-toggle');
-const bgm = document.getElementById('bg-music');
-
-// 將每個 tile 的位置存下來
-let positions = [];
-tiles.forEach(tile => {
-  const rect = tile.getBoundingClientRect();
-  const tileOffset = tile.getBoundingClientRect();
-  const bodyRect = document.body.getBoundingClientRect();
-  positions.push({
-    left: tile.offsetLeft + tile.offsetWidth / 2 - 32,
-    top: tile.offsetTop + tile.offsetHeight / 2 - 32
+      if (typeof window.onload === "function") window.onload();
+    });
   });
+
+  // 說話泡泡
+ speech.addEventListener("click", () => {
+  if (!selectedCharacter) return;
+  const lines = phrases[selectedCharacter] || ["嗨～"];
+  const random = Math.floor(Math.random() * lines.length);
+  speech.textContent = lines[random];
 });
 
-let currentStep = 0; // 目前角色所在格子
 
-// 平滑走路（使用 setInterval 模擬步行）
-function walkTo(step) {
-  const target = positions[step];
-  const speed = 4; // 每次移動幾 px（可調快慢）
-  
-  const interval = setInterval(() => {
-    let currentX = parseFloat(walker.style.left);
-    let currentY = parseFloat(walker.style.top);
+  // 腳印功能
+  const MAX_FOOTPRINTS = 5;
+  const MIN_DISTANCE = 10;
+  let footprintList = [];
+  let lastFootprint = { x: null, y: null };
 
-    let dx = target.left - currentX;
-    let dy = target.top - currentY;
-
-    let distance = Math.sqrt(dx * dx + dy * dy);
-
-    if (distance < speed) {
-      walker.style.left = `${target.left}px`;
-      walker.style.top = `${target.top}px`;
-      currentStep = step;
-      addFootprint(target.left + 20, target.top + 40);
-      clearInterval(interval);
-      return;
+  function addFootprint(x, y) {
+    if (lastFootprint.x !== null) {
+      const dx = x - lastFootprint.x;
+      const dy = y - lastFootprint.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < MIN_DISTANCE) return;
     }
 
-    // 正規化方向
-    let angle = Math.atan2(dy, dx);
-    let vx = Math.cos(angle) * speed;
-    let vy = Math.sin(angle) * speed;
+    const fp = document.createElement("div");
+    fp.className = "footprint";
+    fp.style.left = `${x}px`;
+    fp.style.top = `${y}px`;
+    mapContainer.appendChild(fp);
 
-    currentX += vx;
-    currentY += vy;
 
-    walker.style.left = `${currentX}px`;
-    walker.style.top = `${currentY}px`;
+    footprintList.push(fp);
+    lastFootprint = { x, y };
 
-    addFootprint(currentX + 20, currentY + 40);
-  }, 30); // 每 30ms 更新一次位置
-}
+    if (footprintList.length > MAX_FOOTPRINTS) {
+      const old = footprintList.shift();
+      old.remove();
+    }
 
-// 點 tile 觸發移動
-tiles.forEach(tile => {
-  tile.addEventListener('click', () => {
+    setTimeout(() => {
+      if (fp.parentElement) fp.remove();
+    }, 2000);
+  }
+
+  // 步行邏輯
+  window.onload = () => {
+    const tiles = document.querySelectorAll(".tile");
+    positions = Array.from(tiles).map(tile => ({
+      left: tile.offsetLeft + tile.offsetWidth / 2 - 32,
+      top: tile.offsetTop + tile.offsetHeight / 2 - 32
+    }));
+
+    walker.style.left = `${positions[0].left}px`;
+    walker.style.top = `${positions[0].top}px`;
+
+    // 點tile邊邊會走過去但不跳轉頁面
+     tiles.forEach(tile => {
+  tile.addEventListener("click", e => {
     const step = parseInt(tile.dataset.step);
+    const link = tile.querySelector("a");
+
     if (step !== currentStep) {
-      walkTo(step);
+      walkTo(step, () => {
+        // 只有點到 <a> 才跳轉
+        if (link && e.target === link) {
+          e.preventDefault(); // 在這裡才阻止預設行為
+          window.location.href = link.href;
+        }
+      });
+    } else {
+      if (link && e.target === link) {
+        e.preventDefault();
+        window.location.href = link.href;
+      }
     }
   });
 });
+  }
 
-// 音樂控制
-musicToggle.addEventListener('click', () => {
-  if (bgm.paused) {
-    bgm.play();
-    musicToggle.textContent = '🔊';
-  } else {
-    bgm.pause();
-    musicToggle.textContent = '🔇';
+
+
+  function walkTo(step, callback) {
+    if (isWalking) return;
+    isWalking = true;
+    if (walkInterval) clearInterval(walkInterval);
+
+    const target = positions[step];
+    const speed = 6;
+
+    walkInterval = setInterval(() => {
+      let currentX = parseFloat(walker.style.left || "0");
+      let currentY = parseFloat(walker.style.top || "0");
+      const dx = target.left - currentX;
+      const dy = target.top - currentY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < speed) {
+        walker.style.left = `${target.left}px`;
+        walker.style.top = `${target.top}px`;
+        currentStep = step;
+        addFootprint(target.left + 20, target.top + 40);
+        clearInterval(walkInterval);
+        walkInterval = null;
+        isWalking = false;
+        if (typeof callback === "function") {
+          setTimeout(callback, 200);
+        }
+        return;
+      }
+
+      const angle = Math.atan2(dy, dx);
+      const vx = Math.cos(angle) * speed;
+      const vy = Math.sin(angle) * speed;
+      currentX += vx;
+      currentY += vy;
+
+      walker.style.left = `${currentX}px`;
+      walker.style.top = `${currentY}px`;
+      addFootprint(currentX + 20, currentY + 40);
+    }, 30);
   }
 });
+</script>
 
-// 初始位置
-walker.style.left = `${positions[0].left}px`;
-walker.style.top = `${positions[0].top}px`;
+<style>
+.footprint {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+</style>
 
-    </script>
 
-    
 
 </body>
 </html>
