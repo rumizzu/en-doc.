@@ -158,8 +158,8 @@ html, body {
 @media (max-width: 768px) {
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_mobile_1290x2796.png'); /* 改為手機版背景 */
-    background-size: cover;
-    background-position-y: bottom;
+    background-size: 100% 100%;
+    background-position: center;
   }
 }
 
