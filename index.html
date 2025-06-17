@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EN-DOC.</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,8 +82,8 @@
             </a>
             </div>
 
-    <section class="news-section">
-      <!-- 電腦版影片 -->
+    <section class="news-wrapper">
+     <!-- 電腦版影片 -->
       <video class="bg-video desktop-only" autoplay muted loop playsinline>
         <source src="videos/news-bg-h.mp4" type="video/mp4">
       </video>
@@ -92,8 +92,10 @@
       <video class="bg-video mobile-only" autoplay muted loop playsinline>
         <source src="videos/news-bg-v.mp4" type="video/mp4">
       </video>
-
-      <div class="news-content">
+   
+       <!-- 將內容也放進 wrapper -->
+      <div class="news-section">
+       <div class="news-content">
           <h2 class="bold">&#187;&ensp;news &#171;&ensp;</h2>
           
           <ul class="news-list">
@@ -103,7 +105,7 @@
             <li><a href="https://link3.com" target="_blank">Music Bank一位</a></li>
             <li><a href="https://link4.com" target="_blank">M Countdown一位</a></li>
           </ul>
-          <a class="more-news" href="https://weverse.io/enhypen/feed" target="_blank">more news..</a>
+          <a class="more-news" href="morenews.html" target="_blank">more news..</a>
       </div>
     </section>
 
