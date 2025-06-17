@@ -495,27 +495,27 @@ footer p {
 
 .position-start {
   top: 20%;
-  left: 15%;
+  left: 13%;
 }
 
-.position-tour {
-  top: 440px;
-  left: 350px;
+.position-spot {
+  top: 76%;
+  left: 12%;
 }
 
 .position-style {
-  top: 575px;
-  left: 50px;
+  top: 75%;
+  left: 68%;
 }
 
 .position-murmur {
-  top: 580px;
-  left: 350px;
+  top: 99%;
+  left: 68%;
 }
 
 .position-stage {
-  top: 260px;
-  left: 380px;
+  top: 45%;
+  left: 70%;
 }
 
 .position-walker {
@@ -613,6 +613,6 @@ footer p {
 }
 
 #music-toggle {
-  display: block;
+  display: none;
 }
 }
