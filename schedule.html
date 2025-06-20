@@ -51,6 +51,7 @@
         </thead>
         <tbody id="calendarBody"></tbody>
       </table>
+      <div id="eventInfo" class="event-info-box"></div>
     </div>
    </section>
 
@@ -112,7 +113,7 @@
         30: { title: "東急田園都市線-ENHYPEN主題列車[~7/16]", url: "" }
       },
       "2025-07": {
-        1: { title: "東海道新幹線車内(東京～新大阪駅間)特別talk、music、item;RED゜TOKYO TOWER特別展示活動、ENHYPEN罐裝飲料（自販機）、渋谷パルコ遊樂區（扭蛋、滾球賓果遊戲）[~8/29]", url: "" },
+        1: { title: "①東海道新幹線車内(東京～新大阪駅間)特別talk、music、item ②RED゜TOKYO TOWER特別展示活動 ③ENHYPEN罐裝飲料（自販機） ④渋谷パルコ遊樂區（扭蛋、滾球賓果遊戲）[~8/29]", url: "" },
         3: { title: "Meet & Greet、拍手會 in TOKYO、THE MUSIC DAY 2025", url: "" },
         5: { title: "WALK THE LINE’ in JAPAN -SUMMER EDITION-TOKYO", url: "" },
         6: { title: "WALK THE LINE’ in JAPAN -SUMMER EDITION-TOKYO、日本出道四週年", url: "" },
@@ -145,6 +146,13 @@
        "2025-10": {
         7: { title: "線上活動（日區應募）", url: "" },
         15: { title: "🎂羲承生日🎂", url: "" }
+      },
+      "2025-11": {
+        15: { title: "🎂JAKE生日🎂", url: "" }
+      },
+      "2025-12": {
+        8: { title: "🎂成訓生日🎂", url: "" },
+        9: { title: "🎂NIKI生日🎂", url: "" }
       }
     };
 
@@ -208,7 +216,21 @@
       }
 
       link.textContent = day;
-      link.href = link.href || "#";
+      link.href = "javascript:void(0)";
+
+      if (events[key] && events[key][day]) {
+  const event = events[key][day];
+  link.classList.add("event-day");
+  link.setAttribute("data-tooltip", event.title);
+
+  // 加入點擊事件顯示活動資訊
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const infoBox = document.getElementById("eventInfo");
+    infoBox.innerHTML = `<strong>${year}/${month + 1}/${day}</strong>：${event.title}`;
+    infoBox.style.display = "block";
+  });
+}
 
       if (isOtherMonth) {
         link.classList.add("other-month");

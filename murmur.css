@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+h1, h2, h3, p, .nav-links, center, table, .murmur-section {
+  font-family: 'Silkscreen', 'Sunflower', 'DotGothic16', 'Noto Sans TC', sans-serif;
+}
+
+header {
+    background-color:#626567;
+    height:80px;
+    width:100%;
+    top: 0;
+    display: flex;             
+    align-items: center;       
+    padding-left: 5vw;
+    position: fixed;
+    z-index: 9999;
+}
+
+ h1{
+    color:white;
+    position:absolute;
+    left:5vw;
+    top: 13px;
+    line-height: 80px;
+ }
+ h1 a {
+  color: white;
+  text-decoration: none!important;
+ }
+
+ h1 a:hover {
+  color: #f4d03f;
+  text-decoration: none!important;
+ }
+
+ header ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+ }
+ header li {
+    display: inline;
+    margin-right: 4vw;
+ }
+
+ header a {
+    color:white;
+    text-decoration: none;
+ }
+ header a:hover {
+    color: #f4d03f;
+    text-decoration: none!important;
+ }
+
+
+/* 漢堡按鈕 */
+.menu-toggle {
+  position:absolute;
+  font-size: 28px;
+  top: 13px;;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* 手機版樣式 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 80px; /* header 高度 */
+    left: 10px;
+    width: 110vw;
+    box-sizing: border-box;
+    background-color: #626567;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links ul {
+    width: 100%;
+    background-color: #626567;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+    background-color: #4d5154;
+  }
+
+  header ul {
+    display: none; /* 保險：header ul 一律隱藏 */
+  }
+
+  header h1 {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  align-items: flex-start; /* 靠上，如果想靠中改成 center */
+  min-height: 100vh;
+  padding-top: 80px; /* 頂部空間 */
+  overflow-x: hidden;
+}
+
+h2{
+    color: gray;
+}
+
+.murmur-section {
+  max-width: 600px;
+  background-color: white;
+  border: 4px dashed #888;
+  padding: 20px;
+  border-radius: 16px;
+  color: #f1f1f1;
+}
+
+.post-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.post-form textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 12px;
+  font-family: 'DotGothic16', sans-serif;
+  background-color: white;
+  color: gray;
+  border: 2px dashed #666;
+  padding: 8px;
+  resize: vertical;
+  font-size: 16px;
+}
+
+/* 隱藏原生 input[type=file] */
+.post-form input[type="file"] {
+  display: none;
+}
+
+/* 共用按鈕線框風格 */
+.button-outline {
+  font-family: 'Silkscreen', 'DotGothic16', monospace, sans-serif;
+  font-size: 16px;
+  color: #f4d03f;
+  background-color: transparent;
+  border: 2px solid #f4d03f;
+  padding: 8px 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 6px;
+  box-shadow:
+    0 0 5px #f4d03f,
+    0 0 10px #f4d03f;
+  user-select: none;
+  display: inline-block;
+}
+
+.button-outline:hover {
+  background-color: #f4d03f;
+  color: #222;
+  box-shadow:
+    0 0 10px #fff,
+    0 0 20px #fff;
+}
+
+/* 選擇檔案按鈕 */
+.file-label {
+  margin-bottom: 12px;
+}
+
+/* 發布按鈕寬度100%，換行 */
+.submit-btn {
+  display: block;
+  width: 100%;
+}
+
+/* 讓選擇檔案和發布貼文垂直排列 */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* 讓按鈕佔滿整個寬度 */
+.button-outline {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.button-outline.small {
+  padding: 4px 12px;
+  font-size: 14px;
+  width: auto;
+  color: gray;
+  border: 2px solid gray;
+  box-shadow: none;
+}
+
+
+#postList .post {
+  background-color: white;
+  padding: 12px;
+  margin-top: 15px;
+  border: 2px dashed #555;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#postList img,
+#postList video {
+  width: 400px;  /* 固定寬度 */
+  height: auto;  /* 高度自動 */
+  display: block;
+  margin: 10px auto 0;
+}
+
