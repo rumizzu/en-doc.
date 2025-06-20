@@ -145,7 +145,7 @@ h2 {
 .news-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 0 30px;
+  gap: 35px 30px;
   padding: 80px 5vw 100px;
   max-width: 1400px; /* 可選：限制最大寬度 */
   margin: 0 auto;
@@ -159,8 +159,10 @@ h2 {
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  height: 80%;
+  height: 270px;
 }
+
+
 /* 🔹 電腦版限制最多 3 欄 */
 @media (min-width: 1024px) {
   .news-container {
@@ -272,6 +274,7 @@ h2 {
     background: #333;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: transform 0.3s, box-shadow 0.3s;
+
   }
 
   .news-card img {

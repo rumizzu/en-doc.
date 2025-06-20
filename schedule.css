@@ -215,18 +215,18 @@ header {
   text-decoration: none;
   font-weight: bold;
   color: gray;
-  background-color: #d6eaf8!important;
+  background-color: #f09389!important;
   position: relative;
 }
 
 .calendar td a:hover {
-  background-color: #d6eaf8!important;
+  background-color: #f09389!important;
   font-weight: bold;
 }
 
 /* 有活動的日期：加閃爍動畫與背景 */
 .calendar td a.event-day {
-  background: #d6eaf8!important; 
+  background: #f09389!important; 
   animation: pulse 1.5s infinite;
 }
 /* 閃爍動畫 */

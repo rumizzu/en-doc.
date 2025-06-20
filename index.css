@@ -265,7 +265,7 @@ header {
 
 .bg-video {
   position: absolute;
-  top: 10%;
+  top: 13%;
   left: 2%;
   width: 100vw;
   height: 85%;
@@ -321,7 +321,8 @@ header {
   font-size: 15px;
   color: gray;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 180px;
+  margin-left: 250px;
 }
 
 .more-news:hover {

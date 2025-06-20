@@ -149,13 +149,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const phrases = {
-  HEESEUNG: ["我最喜歡甜食！", "準備好冒險了嗎？"],
-  JUNGWON: ["別忘了拍照紀錄！", "我來帶路吧～"],
-  JAY: ["冒險才剛開始！", "小心腳下！"],
-  JAKE: ["一起出發吧～", "今天是個好日子！"],
-  SUNGHOON: ["保持冷靜", "跟緊我喔！"],
-  SUNOO: ["拍張照片吧！", "可愛就是力量！"],
-  NIKI: ["Let's go～", "我來當前鋒！"]
+  HEESEUNG: ["拉麵拉麵～🐹", "Let's get it！", "ENGENE吃飽了嗎？"],
+  JUNGWON: ["yoi~~", "最喜歡跟ENGENE一起玩了！", "明天見🥰"],
+  JAY: ["야！", "要一起彈吉他嗎～🎸", "會為了ENGENE更努力的！"],
+  JAKE: ["ENGENE～", "LOVE YOU GUYS~❤️"],
+  SUNGHOON: ["HOLLO~", "我的基因應該不錯吧？", "ENGENE最棒😍"],
+  SUNOO: ["헉😳", "我想吃冰淇淋！", "一直都很謝謝ENGENE🤍"],
+  NIKI: ["Let's go～", "在ENGENE身邊已經很幸福了🫶", "🫠"]
 };
 
 // 🟨 點對話泡泡 => 顯示隨機對話
@@ -184,7 +184,7 @@ document.addEventListener("click", (e) => {
       const selectedMember = members.find(m => m.name === selectedName);
       walkerImg.src = selectedMember.src;
       walkerImg.alt = selectedMember.name;
-      speech.textContent = `你好！我是 ${selectedMember.name}`;
+      speech.textContent = `HI！我是 ${selectedMember.name}`;
       walker.style.display = "block";
 
       const startTile = document.querySelector(".position-start");
@@ -199,7 +199,7 @@ document.addEventListener("click", (e) => {
         wrapper.className = `chibi-wrapper ${member.position}`;
         wrapper.innerHTML = `
           <img src="${member.src}" class="chibi" alt="${member.name}" />
-          <div class="speech-bubble">你好！我是 ${member.name}</div>
+          <div class="speech-bubble">HI！我是 ${member.name}</div>
         `;
         mapContainer.appendChild(wrapper);
       });
@@ -330,6 +330,7 @@ document.addEventListener("click", (e) => {
   }
 });
 </script>
+
 
 <style>
 .footprint {

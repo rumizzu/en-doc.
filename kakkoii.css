@@ -276,7 +276,7 @@ body {
   transition: transform 0.1s;
   text-align: center;
   height: 40px;
-  width: 160px;
+  width: 200px;
   white-space: normal; /* 讓文字可換行 */
   line-height: 35px;
 }
@@ -317,7 +317,7 @@ body {
   transition: transform 0.1s;
   text-align: center;
   height: 40px;
-  width: 160px;
+  width: 200px;
   white-space: normal; /* 讓文字可換行 */
   line-height: 35px;
 }
