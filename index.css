@@ -371,6 +371,7 @@ header {
   .news-content .more-news {
     font-size: 10px;
     top: 550px;
+    margin-left: 0;  
   }
   .news-list {
     list-style: none;     /* 移除黑點 */

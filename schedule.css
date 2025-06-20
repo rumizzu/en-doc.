@@ -312,6 +312,24 @@ header {
   border-radius: 6px;
 }
 
+.event-info-box {
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  color: gray;
+  padding: 16px;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  font-family: 'DotGothic16', sans-serif;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none; /* 預設隱藏 */
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 1.6;
+}
+
+
 
 @media (max-width: 576px) {
   .calendar th, .calendar td {
