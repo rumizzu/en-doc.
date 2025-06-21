@@ -142,9 +142,8 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/bg_desktop_1920x1080.png'); /* 半透明遮罩 + 圖片 */
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
-  background-size: contain;   /* 或 contain 看你需求 */
   background-attachment: fixed;  /* 若你想要背景固定在畫面上 */
   min-height: 100vh;  /* 確保至少鋪滿整個畫面 */
   padding-top: 100px; /* 給整個 body 空間 */
