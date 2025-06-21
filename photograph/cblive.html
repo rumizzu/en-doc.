@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EN-DOC. 相簿</title>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: rgb(206, 205, 205);
+      font-family: 'DotGothic16', sans-serif;
+      color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    .album-container {
+      padding: 60px 20px 20px 20px;
+      position: relative;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-family: 'DotGothic16', sans-serif;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s, background-color 0.2s;
+      border-radius: 12px;
+      color: #f9e79f;
+      padding: 8px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    .album-title {
+      position: relative;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #3f3f40;
+      font-family: 'DotGothic16', sans-serif;
+      padding: 1% 0.5%;
+    }
+
+    .cn {
+      position: relative;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #3f3f40;
+      font-family: 'DotGothic16', sans-serif;
+      padding: 0 0.5%;
+    }
+
+    .album-sections {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      top: 40%;
+    }
+
+    .photo-section {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      background-color: #333;
+      padding: 20px;
+      border: 3px dashed #e9d171;
+      border-radius: 12px;
+      gap: 20px;
+    }
+
+    .photo-text {
+      width: 45%;
+    }
+
+    .photo-text h3 {
+      color: #e9d171;
+      font-size: 18px;
+      letter-spacing: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .photo-text p {
+      font-size: 14px;
+      color: #ccc;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .photo-image {
+      width: 55%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .photo-image img {
+      width: calc(33.333% - 8px);
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .chibi-layer {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: walk 3s infinite linear;
+      z-index: 5;
+    }
+
+    @keyframes walk {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(30px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <a href="../photograph.html" class="back-button">← 回上一頁</a>
+
+  <div class="album-container">
+    <div class="album-title">COMEBACK LIVE With DESIRE : UNLEASH - 花絮照</div>
+    <div class="cn"><ul><a href="https://weverse.io/enhypen/media/4-202171543">完整相簿請點此</a></ul></div>
+
+
+    <div class="album-sections">
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>JUNGWON</h3>
+          <p>太～可～愛～啦～～～</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/jw.3.jpg" alt="p">
+          <img src="photos/jw.4.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>HEESEUNG</h3>
+          <p>頭髮剪短又更帥了❤️</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/hs.4.jpg" alt="p">
+          <img src="photos/hs.5.jpg" alt="p">
+          <img src="photos/hs.6.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>JAY</h3>
+          <p>🖤ENGENE🖤</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/j.3.jpg" alt="p">
+          <img src="photos/j.4.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>JAKE</h3>
+          <p>要一起泡澡是嗎？（kidding</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/jk.6.jpg" alt="p">
+          <img src="photos/jk.7.jpg" alt="p">
+          <img src="photos/jk.8.jpg" alt="p">
+        </div>
+      </div>
+
+       <div class="photo-section" >
+        <div class="photo-text">
+          <h3>SUNGHOON</h3>
+          <p>帥</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/sh.4.jpg" alt="p">
+          <img src="photos/sh.5.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>SUNOO</h3>
+          <p>萌萌～ouo</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/sn.5.jpg" alt="p">
+          <img src="photos/sn.6.jpg" alt="p">
+          <img src="photos/sn.7.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>NIKI</h3>
+          <p>酷哥 B-）</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/nk.3.jpg" alt="p">
+          <img src="photos/nk.4.jpg" alt="p">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 自動插入每區角色動畫 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".photo-section");
+
+      sections.forEach(section => {
+        const chibiUrl = section.getAttribute("data-chibi");
+        if (chibiUrl) {
+          const chibiDiv = document.createElement("div");
+          chibiDiv.classList.add("chibi-layer");
+          chibiDiv.style.backgroundImage = `url('${chibiUrl}')`;
+          section.appendChild(chibiDiv);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

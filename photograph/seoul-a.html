@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EN-DOC. 相簿</title>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: rgb(206, 205, 205);
+      font-family: 'DotGothic16', sans-serif;
+      color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    .album-container {
+      padding: 60px 20px 20px 20px;
+      position: relative;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-family: 'DotGothic16', sans-serif;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s, background-color 0.2s;
+      border-radius: 12px;
+      color: #f9e79f;
+      padding: 8px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    .album-title {
+      position: relative;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #3f3f40;
+      font-family: 'DotGothic16', sans-serif;
+      padding: 1% 0.5%;
+    }
+
+    .album-sections {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      top: 40%;
+    }
+
+    .photo-section {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      background-color: #333;
+      padding: 20px;
+      border: 3px dashed #e9d171;
+      border-radius: 12px;
+      gap: 20px;
+    }
+
+    .photo-text {
+      width: 45%;
+    }
+
+    .photo-text h3 {
+      color: #e9d171;
+      font-size: 18px;
+      letter-spacing: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .photo-text p {
+      font-size: 14px;
+      color: #ccc;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .photo-image {
+      width: 55%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .photo-image img {
+      width: calc(33.333% - 8px);
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .chibi-layer {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: walk 3s infinite linear;
+      z-index: 5;
+    }
+
+    @keyframes walk {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(30px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <a href="../photograph.html" class="back-button">← 回上一頁</a>
+
+  <div class="album-container">
+    <div class="album-title">任命為「首爾市榮譽大使」<br>新聞圖</div>
+
+    <div class="album-sections">
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>group</h3>
+          <p>2025首爾市形像大使任命儀式✨</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/g.jpg" alt="p">
+          <img src="photos/g.1.png" alt="p">
+          <img src="photos/g.5.jpg" alt="p">
+          <img src="photos/g.4.png" alt="p">
+          <img src="photos/g.3.png" alt="p">
+          <img src="photos/g.6.png" alt="p">
+          <img src="photos/g.7.png" alt="p">
+          <img src="photos/g.8.png" alt="p">
+          <img src="photos/g.9.png" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" data-chibi="../images/jungwon.PNG">
+        <div class="photo-text">
+          <h3>JUNGWON</h3>
+          <p>可靠的貓貓隊長！</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/jw.png" alt="p">
+          <img src="photos/jw.1.png" alt="p">
+          <img src="photos/jw.2.png" alt="p">
+          <img src="photos/jw.5.png" alt="p">
+          <img src="photos/jw.4.png" alt="p">
+          <img src="photos/jw.3.png" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" data-chibi="../images/heeseung.PNG">
+        <div class="photo-text">
+          <h3>HEESEUNG</h3>
+          <p>Newsen記者上了「擄獲女性的心的眼神(여심을 붙잡는 눈빛)」的標題ㅋㅋㅋ</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/h.png" alt="p">
+          <img src="photos/h.1.png" alt="p">
+          <img src="photos/h.2.png" alt="p">
+          <img src="photos/h.5.png" alt="p">
+          <img src="photos/h.4.png" alt="p">
+          <img src="photos/h.3.png" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" data-chibi="../images/jay.PNG">
+        <div class="photo-text">
+          <h3>JAY</h3>
+          <p>擋不住的霸氣😎</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/j.png" alt="p">
+          <img src="photos/j.1.png" alt="p">
+          <img src="photos/j.2.png" alt="p">
+          <img src="photos/j.3.png" alt="p">
+          <img src="photos/j.4.png" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" data-chibi="../images/jake.PNG">
+        <div class="photo-text">
+          <h3>JAKE</h3>
+          <p>愛心大狗夠🫶🐶</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/jk.png" alt="p">
+          <img src="photos/jk.1.png" alt="p">
+          <img src="photos/jk.2.png" alt="p">
+          <img src="photos/jk.3.png" alt="p">
+          <img src="photos/jk.4.png" alt="p">
+          <img src="photos/jk.5.jpg" alt="p">
+        </div>
+      </div>
+
+       <div class="photo-section" data-chibi="../images/sunghoon.PNG">
+        <div class="photo-text">
+          <h3>SUNGHOON</h3>
+          <p>뉴스1記者：只是舉手就帥爆了(손만 들어도 멋짐 폭발)<br>👋</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/sh.png" alt="p">
+          <img src="photos/sh.1.png" alt="p">
+          <img src="photos/sh.2.png" alt="p">
+          <img src="photos/sh.3.png" alt="p">
+          <img src="photos/sh.4.png" alt="p">
+          <img src="photos/sh.5.png" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" data-chibi="../images/sunoo.PNG">
+        <div class="photo-text">
+          <h3>SUNOO</h3>
+          <p>善禹真的好可愛uwuuuuu</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/sn.png" alt="p">
+          <img src="photos/sn.1.png" alt="p">
+          <img src="photos/sn.2.png" alt="p">
+          <img src="photos/sn.3.png" alt="p">
+          <img src="photos/sn.4.png" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" data-chibi="../images/niki.PNG">
+        <div class="photo-text">
+          <h3>NIKI</h3>
+          <p>OSEN記者：男人味十足(남자의 분위기)😎</p>
+        </div>
+        <div class="photo-image">
+          <img src="photos/nk.png" alt="p">
+          <img src="photos/nk.1.png" alt="p">
+          <img src="photos/nk.2.png" alt="p">
+          <img src="photos/nk.3.png" alt="p">
+          <img src="photos/nk.4.png" alt="p">
+          <img src="photos/nk.5.png" alt="p">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 自動插入每區角色動畫 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".photo-section");
+
+      sections.forEach(section => {
+        const chibiUrl = section.getAttribute("data-chibi");
+        if (chibiUrl) {
+          const chibiDiv = document.createElement("div");
+          chibiDiv.classList.add("chibi-layer");
+          chibiDiv.style.backgroundImage = `url('${chibiUrl}')`;
+          section.appendChild(chibiDiv);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
