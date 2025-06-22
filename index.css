@@ -194,8 +194,10 @@ header {
 .news-section {
   position: relative;
   height: 900px;
-  width: 90vw;
-  margin: 100px auto;               /* ⭐ 讓整塊置中 ⭐ */
+  width: 130vw!important;
+  top: 0;
+  left: -15vw;              /* ✅ 把右偏的部分拉回來一半 */
+  margin: 20px auto;               /* ⭐ 讓整塊置中 ⭐ */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -208,23 +210,27 @@ header {
 .news-content {
   position: relative;
   width: 100%;
-  height: 100vh;
+  padding: 10px 0;
 }
 
 .news-content h2 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  color: gray;
+  position: relative;       /* ✅ 改為 relative 好控制 */
+  margin-top: 0;
+  padding-top: 0;        /* 可調整讓 h2 更靠上 */
   font-size: 36px;
+  font-weight: bold;
   text-align: center;
   z-index: 2;
-  font-weight: bold;
+  display: inline-block;         /* 讓邊框只包住文字大小 */
+  border-radius: 8px;            /* 圓角（可選） */
+  background-color: rgba(244, 208, 63, 0.2); /* 半透明背景（可選） */
 }
 
+
 .news-content ul {
-  position: absolute;
-  top: 210px;
+  position: relative;
+  top: 0;
+  margin-top: 40px;   /* ✅ 用這個取代絕對定位 */
   width: 100%;
   height: 100%;
   color: gray;
@@ -236,19 +242,18 @@ header {
 }
 
 .news-content .more-news {
-  position: absolute;
-  top: 620px;
-  left: 0;
+  position: relative;
+  top: 25px;
+  right: 0;
   width: 100%;
   height: 100%;
-  color: gray;
   font-size: 15px;
   text-align: center;
   z-index: 2;
   line-height: 1.5;
   font-weight: bold;        /* 加粗 */
   animation: flash 2s infinite; /* 套用閃爍動畫 */
-  color: gray;           /* 可選：黃色文字 */
+  color: #f4d03f;           /* 可選：黃色文字 */
 }
 
 @keyframes flash {
@@ -274,15 +279,6 @@ header {
   margin: 0;
   padding: 0;
 }
-
-.news-section {
-  position: relative;
-  width: 90vw;
-  margin: 100px auto;
-  z-index: 2;
-}
-
-
 
 .desktop-only {
   display: block;
@@ -315,15 +311,7 @@ header {
   text-decoration: none;
 }
 
-.more-news {
-  display: block;
-  text-align: right;
-  font-size: 15px;
-  color: gray;
-  text-decoration: none;
-  margin-top: 180px;
-  margin-left: 250px;
-}
+
 
 .more-news:hover {
   color: #f4d03f;
@@ -337,42 +325,38 @@ header {
   }
   .mobile-only {
     display: block;
-    top: 3%;
+    top: 5%;
+  }
+
+  .news-section {
+    width: 90vw;
+    margin: 60px auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
   }
   
-  .news-content {
-    position: relative;
-    z-index: 2;
-    margin-top: 0;
-    padding: 0 10px;
+ .news-content {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 10px 0;
   }
+
   .news-content h2 {
-    margin: 0;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-  }
-  .news-section {
-    position: relative;
-    padding: 0; /* 上右下左 */
-    width: 100vw;
-    height: auto;
-    overflow: hidden;
-    text-align: center;
+    font-size: 24px;
   }
 
   .news-content ul {
     font-size: 12px;
-    letter-spacing: 5px;
-    line-height: 1.5;
-    top: 250px;
+    margin-top: 20px;
   }
 
   .news-content .more-news {
     font-size: 10px;
-    top: 550px;
-    margin-left: 0;  
+    margin-top: 20px;
   }
+
   .news-list {
     list-style: none;     /* 移除黑點 */
   }
