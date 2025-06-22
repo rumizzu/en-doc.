@@ -3,9 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  overflow-x: hidden;
-}
+
 
 h1, h2, h3, p, .nav-links, center ,.news-content {
   font-family: 'Silkscreen', 'Sunflower', 'DotGothic16', 'Noto Sans TC', sans-serif;
@@ -205,6 +203,7 @@ header {
   text-align: center;
   color: gray;
   z-index: 2;
+  flex-shrink: 0; /* 不要被壓縮 */
 }
 
 .news-content {
@@ -518,6 +517,10 @@ p {
   }
 }
 
+.content-wrapper {
+  flex: 1;
+}
+
 footer {
     background-color: #626567;
     color: white;
@@ -548,14 +551,11 @@ img {
 
 /* 區塊不要擠出螢幕 */
 body {
+  padding-top: 80px; /* header 空間 */
   overflow-x: hidden;
 }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-  padding-bottom: 30px; /* 建議略高於 footer 高度 */
-}
+
 
 @media (max-width: 768px) {
 footer {
@@ -572,11 +572,14 @@ footer {
     text-align: center; /* 保險起見 */
     position: fixed;
     bottom: 0;
-    width: 100%;;
+    width: 100%;
 }
 footer p {
   margin: 0;
-  line-height: 60px;
+  line-height: 30px;
 }
+body {
+    padding-bottom: 8vh;  /* 或改成 60px，確保 footer 不會擋住內容 */
+  }
 }
 
