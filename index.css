@@ -562,7 +562,7 @@ footer {
     background-color: #626567;
     color: white;
     height: 6vh;
-    line-height: 8vh;
+    line-height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -576,7 +576,7 @@ footer {
 }
 footer p {
   margin: 0;
-  line-height: 30px;
+  line-height: 40px;
 }
 body {
     padding-bottom: 8vh;  /* 或改成 60px，確保 footer 不會擋住內容 */

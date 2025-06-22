@@ -403,6 +403,30 @@
     <p>Copyright © 2025 rumi_zzu ALL RIGHTS RESERVED.</p>
  </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // 切換選單開關
+    menuToggle.addEventListener('click', function (e) {
+      e.stopPropagation(); // 防止點擊漢堡按鈕被下面的 click 事件偵測
+      navLinks.classList.toggle('active');
+    });
+
+    // 點選選單內部不關閉
+    navLinks.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+
+    // 點其他地方會關掉選單
+    document.addEventListener('click', function () {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
+
+
 </body>
 </html>
 
