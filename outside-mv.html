@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EN-DOC. photograph</title>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: rgb(206, 205, 205);
+      font-family: 'DotGothic16', sans-serif;
+      color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    .album-container {
+      padding: 60px 20px 20px 20px;
+      position: relative;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-family: 'DotGothic16', sans-serif;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s, background-color 0.2s;
+      border-radius: 12px;
+      color: #f9e79f;
+      padding: 8px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    .album-title {
+      position: relative;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #3f3f40;
+      font-family: 'DotGothic16', sans-serif;
+      padding: 1% 0.5%;
+    }
+
+    .cn {
+      position: relative;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #3f3f40;
+      font-family: 'DotGothic16', sans-serif;
+      padding: 0 0.5%;
+    }
+
+    .album-sections {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      top: 40%;
+    }
+
+    .photo-section {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      background-color: #333;
+      padding: 20px;
+      border: 3px dashed #e9d171;
+      border-radius: 12px;
+      gap: 20px;
+    }
+
+    .photo-text {
+      width: 45%;
+    }
+
+    .photo-text h3 {
+      color: #e9d171;
+      font-size: 18px;
+      letter-spacing: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .photo-text p {
+      font-size: 14px;
+      color: #ccc;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .photo-image {
+      width: 55%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .photo-image img {
+      width: calc(33.333% - 8px);
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+     .photo-image video {
+      width: calc(33.333% - 8px);
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .chibi-layer {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: walk 3s infinite linear;
+      z-index: 5;
+    }
+
+    @keyframes walk {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(30px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <a href="../photograph.html" class="back-button">← 回上一頁</a>
+
+  <div class="album-container">
+    <div class="album-title">Outside - MV（很喜歡）❤️</div>
+    <div class="cn"><ul><a href="https://www.youtube.com/watch?v=uHG-2mCfyT4">完整mv請點此</a></ul></div>
+    <style>
+        .cn a {
+           color: gray; /* 改成你想要的顏色 */
+           text-decoration: underline; /* 移除底線（可選） */
+        }
+        .cn a:hover {
+           color: #0073f6; /* 滑過去變金色（或其他） */
+        }
+    </style>
+
+    <div class="album-sections">
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>JUNGWON</h3>
+          <p>在mv裡一直跑跑跑～<br>（在Dark Moon的角色扎卡能力就是有超常的速度）</p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="osjw.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="osjw1.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="osjw.jpg" alt="p">
+          <img src="osjw1.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>HEESEUNG</h3>
+          <p>開頭就帥翻啦❤️<br>跳舞還是一樣乾淨俐落，好好看😍</p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="oshs3.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="oshs.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="oshs1.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="oshs2.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="oshs.jpg" alt="p">
+          <img src="oshs1.jpg" alt="p">
+          <img src="oshs2.jpg" alt="p">
+          <img src="oshs3.jpg" alt="p">
+          <img src="oshs4.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>JAY</h3>
+          <p>兔耳朵（？）帽子喝牛奶有夠萌xd</p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="osj.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="osj1.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="osj.jpg" alt="p">
+          <img src="osj1.jpg" alt="p">
+          <img src="osj2.jpg" alt="p">
+          <img src="osj3.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>JAKE</h3>
+          <p></p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="osjk.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="osjk.jpg" alt="p">
+          <img src="osjk1.jpg" alt="p">
+          <img src="osjk2.jpg" alt="p">
+          <img src="osjk3.jpg" alt="p">
+          <img src="osjk4.jpg" alt="p">
+        </div>
+      </div>
+
+       <div class="photo-section" >
+        <div class="photo-text">
+          <h3>SUNGHOON</h3>
+          <p>花了很大的篇幅在打架🤣</p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="ossh.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="ossh1.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="ossh.jpg" alt="p">
+          <img src="ossh1.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>SUNOO</h3>
+          <p></p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="ossn.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="ossn1.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="ossn.jpg" alt="p">
+          <img src="ossn1.jpg" alt="p">
+          <img src="ossn2.jpg" alt="p">
+          <img src="ossn3.jpg" alt="p">
+        </div>
+      </div>
+
+      <div class="photo-section" >
+        <div class="photo-text">
+          <h3>NIKI</h3>
+          <p>這首真的太適合NIKI的聲線了！<br>Watch me! Watch me!<br>We be Outside i i i i i i i i ~</p>
+        </div>
+        <div class="photo-image">
+          <video controls width="100%">
+           <source src="osnk.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="osnk1.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="osnk2.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <video controls width="100%">
+           <source src="osnk3.mov" type="video/mp4">您的瀏覽器不支援影片播放。
+          </video>
+          <img src="osnk.jpg" alt="p">
+          <img src="osnk1.jpg" alt="p">
+          <img src="osnk2.jpg" alt="p">
+          <img src="osnk3.jpg" alt="p">
+          <img src="osnk4.jpg" alt="p">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 自動插入每區角色動畫 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".photo-section");
+
+      sections.forEach(section => {
+        const chibiUrl = section.getAttribute("data-chibi");
+        if (chibiUrl) {
+          const chibiDiv = document.createElement("div");
+          chibiDiv.classList.add("chibi-layer");
+          chibiDiv.style.backgroundImage = `url('${chibiUrl}')`;
+          section.appendChild(chibiDiv);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
